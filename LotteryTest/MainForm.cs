@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 
 namespace LotteryTest
@@ -35,6 +36,6 @@ namespace LotteryTest
 
         private void btnImport_Click(object sender, EventArgs e) => ofdTxt.ShowDialog();
 
-        private void ofdTxt_FileOk(object sender, System.ComponentModel.CancelEventArgs e) => txtIds.Lines = File.ReadAllLines(ofdTxt.FileName).Where(p => !string.IsNullOrWhiteSpace(p)).ToArray();
+        private void ofdTxt_FileOk(object sender, System.ComponentModel.CancelEventArgs e) => txtIds.Lines = File.ReadAllLines(ofdTxt.FileName,Encoding.Default).Where(p => !string.IsNullOrWhiteSpace(p)).ToArray();
     }
 }
